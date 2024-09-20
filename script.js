@@ -1,20 +1,28 @@
 (function() {
     // Function to detect the browser type
-    function getBrowser() {
-        var userAgent = navigator.userAgent;
+function getBrowser() {
+    var userAgent = navigator.userAgent;
 
-        if (userAgent.indexOf("Edg") > -1) {
-            return "Edge";
-        } else if (userAgent.indexOf("Firefox") > -1) {
-            return "Firefox";
-        } else if (userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") === -1) {
-            return "Safari";
-        } else if (userAgent.indexOf("Chrome") > -1) {
-            return "Chrome";
-        } else {
-            return "Other";
-        }
+    if (userAgent.indexOf("Edg") > -1) {
+        return "Edge";
+    } else if (userAgent.indexOf("Firefox") > -1) {
+        return "Firefox";
+    } else if (userAgent.indexOf("OPR") > -1 || userAgent.indexOf("Opera") > -1) {
+        return "Opera";
+    } else if (userAgent.indexOf("Vivaldi") > -1) {
+        return "Vivaldi";
+    } else if (userAgent.indexOf("Brave") > -1 || (navigator.brave && await navigator.brave.isBrave())) {
+        return "Brave";
+    } else if (userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") === -1) {
+        return "Safari";
+    } else if (userAgent.indexOf("Chrome") > -1) {
+        return "Chrome";
+    } else if (userAgent.indexOf("Trident") > -1 || userAgent.indexOf("MSIE") > -1) {
+        return "Internet Explorer";
+    } else {
+        return "Other";
     }
+}
 
     // Log or use browser information to adjust behavior
     var browser = getBrowser();
