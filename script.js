@@ -1,4 +1,3 @@
-<script>
 (function() {
     // Function to detect the browser type
     function getBrowser() {
@@ -119,4 +118,3 @@
 
     }, 100); // 100ms delay for proper detection
 })();
-</script>
