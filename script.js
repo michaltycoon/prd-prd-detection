@@ -73,7 +73,12 @@
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         console.log("Data sent successfully to the Flask server.");
+                    } else if (xhr.readyState === 4) {
+                        console.error("Failed to send data to the server.");
                     }
+                };
+                xhr.onerror = function () {
+                    console.error("An error occurred while sending data to the server.");
                 };
                 xhr.send(JSON.stringify(data));
             }
@@ -131,6 +136,6 @@
                 sendResult(); // Call sendResult after Bing Ads check completes
             });
 
-        }, 100); // 100ms delay for proper detection
+        }, 200); // 200ms delay for proper detection
     });
 })();
