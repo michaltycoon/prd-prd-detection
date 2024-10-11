@@ -68,7 +68,7 @@
 
                 // Send the data to the Flask server
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "http://209.38.188.240/collect-data", true); // Update with your server's domain or IP
+                xhr.open("POST", "http://209.38.188.240:8080/collect-data", true); // Update with your server's domain or IP
                 xhr.setRequestHeader("Content-Type", "application/json");
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
